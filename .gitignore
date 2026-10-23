@@ -1,0 +1,7 @@
+# Logs & environment
+.env
+*.log
+
+# Editor
+.vscode/
+.idea/

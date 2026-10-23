@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Henrique | Engenheiro de Software & Desenvolvedor Full Stack</title>
+  <meta name="description" content="Portfólio de Pedro Henrique Lima Leal - Engenheiro de Software & Desenvolvedor Full Stack. Projetos reais em produção, APIs, sistemas web e automações.">
+  <meta name="keywords" content="Pedro Henrique Lima Leal, Desenvolvedor Full Stack, Engenharia de Software, Jala University, Tratormag, React, Python, JavaScript, Portfólio">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pedro Henrique | Software Engineer & Full Stack">
+  <meta property="og:description" content="Engenheiro de Software & Desenvolvedor Full Stack. Conheça meus projetos no ar e competências técnicas.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./pedro.png">
+
+  <link rel="icon" type="image/png" href="./pedro.png">
+
+  <!-- Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with Custom Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#0b0f19',
+              card: 'rgba(15, 23, 42, 0.65)',
+              cardHover: 'rgba(30, 41, 59, 0.7)',
+              violet: '#8b5cf6',
+              violetGlow: '#a855f7',
+              cyan: '#06b6d4',
+              cyanLight: '#22d3ee',
+              slateText: '#94a3b8',
+              slateMuted: '#64748b',
+              border: 'rgba(255, 255, 255, 0.08)',
+            }
+          },
+          boxShadow: {
+            'glow-violet': '0 0 25px -3px rgba(139, 92, 246, 0.35)',
+            'glow-cyan': '0 0 25px -3px rgba(6, 182, 212, 0.35)',
+            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            'portrait-glow': '0 10px 40px -10px rgba(249, 115, 22, 0.3), 0 0 30px -5px rgba(139, 92, 246, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #0b0f19;
+      color: #dfe2f1;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Subtle Cyber Grid Background */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+                        radial-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+    }
+
+    /* Ambient Glow Blobs */
+    .ambient-glow-1 {
+      position: absolute;
+      top: -100px;
+      left: 20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(139, 92, 246, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ambient-glow-2 {
+      position: absolute;
+      top: 600px;
+      right: 5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(6, 182, 212, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(139, 92, 246, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px -5px rgba(139, 92, 246, 0.2);
+    }
+
+    /* Terminal Scrollbar */
+    .term-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .term-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-[#dfe2f1] relative selection:bg-brand-violet selection:text-white">
+
+  <!-- Ambient Gradients -->
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+  <div class="fixed inset-0 bg-grid-pattern pointer-events-none opacity-60 z-0"></div>
+
+  <!-- Header / Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo with Avatar -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="relative w-10 h-10 rounded-full overflow-hidden border-2 border-brand-violet/40 group-hover:border-brand-cyan transition-colors shrink-0 shadow-sm">
+            <img src="./pedro.png" alt="Pedro Henrique Lima Leal" class="w-full h-full object-cover">
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="font-mono text-xs px-2 py-0.5 rounded bg-brand-violet/15 text-brand-violet font-semibold border border-brand-violet/30 group-hover:border-brand-cyan group-hover:text-brand-cyan transition-colors">
+              &lt;PH /&gt;
+            </div>
+            <div>
+              <span class="font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-brand-cyanLight transition-colors">Pedro Henrique</span>
+              <span class="hidden sm:inline-block text-xs font-mono text-brand-slateMuted ml-1.5">• Software Engineer</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#inicio" class="text-sm font-medium text-brand-slateText hover:text-brand-cyanLight transition-colors">Sobre</a>
+          <a href="#projetos" class="text-sm font-medium text-brand-slateText hover:text-brand-cyanLight transition-colors flex items-center gap-1.5">
+            Projetos no Ar
+            <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-mono font-medium bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30">6</span>
+          </a>
+          <a href="#experiencia" class="text-sm font-medium text-brand-slateText hover:text-brand-cyanLight transition-colors">Trajetória</a>
+          <a href="#habilidades" class="text-sm font-medium text-brand-slateText hover:text-brand-cyanLight transition-colors">Habilidades</a>
+          <a href="#contato" class="text-sm font-medium text-brand-slateText hover:text-brand-cyanLight transition-colors">Contato</a>
+        </nav>
+
+        <!-- CTA & Actions -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="https://github.com/pedrohll4" target="_blank" rel="noopener noreferrer" 
+             class="p-2 text-brand-slateText hover:text-white hover:bg-white/5 rounded-lg border border-transparent hover:border-white/10 transition-all"
+             title="Ver GitHub @pedrohll4">
+            <i data-lucide="github" class="w-5 h-5"></i>
+          </a>
+          <a href="https://wa.me/5569992102965?text=Ol%C3%A1%20Pedro!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade/projeto." 
+             target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-violet hover:bg-brand-violetGlow text-white text-sm font-semibold transition-all shadow-glow-violet hover:scale-[1.02] active:scale-[0.98]">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Falar no WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex md:hidden items-center gap-3">
+          <a href="https://wa.me/5569992102965" target="_blank" class="p-2 text-brand-cyan bg-brand-cyan/10 rounded-lg border border-brand-cyan/30">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+          </a>
+          <button id="mobile-menu-btn" class="p-2 text-brand-slateText hover:text-white rounded-lg border border-white/10 focus:outline-none">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-white/10 px-6 py-5 space-y-4">
+      <a href="#inicio" class="block text-sm font-medium text-brand-slateText hover:text-white py-1 mobile-link">Sobre</a>
+      <a href="#projetos" class="block text-sm font-medium text-brand-slateText hover:text-white py-1 mobile-link flex items-center justify-between">
+        <span>Projetos em Produção</span>
+        <span class="px-2 py-0.5 rounded text-xs font-mono bg-brand-cyan/20 text-brand-cyan">6 Sites</span>
+      </a>
+      <a href="#experiencia" class="block text-sm font-medium text-brand-slateText hover:text-white py-1 mobile-link">Trajetória Profissional</a>
+      <a href="#habilidades" class="block text-sm font-medium text-brand-slateText hover:text-white py-1 mobile-link">Habilidades & Stack</a>
+      <a href="#contato" class="block text-sm font-medium text-brand-slateText hover:text-white py-1 mobile-link">Entrar em Contato</a>
+      <div class="pt-2 border-t border-white/10 flex gap-3">
+        <a href="https://github.com/pedrohll4" target="_blank" class="flex-1 text-center py-2 text-xs font-mono font-medium rounded-lg bg-white/5 border border-white/10 text-white">
+          GitHub @pedrohll4
+        </a>
+        <a href="https://wa.me/5569992102965" target="_blank" class="flex-1 text-center py-2 text-xs font-semibold rounded-lg bg-brand-violet text-white">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-28 sm:pt-36">
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Presentation -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-mono font-medium shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+            <span>Disponível para Novos Projetos & Contratação</span>
+          </div>
+
+          <!-- Main Headline -->
+          <div class="space-y-2">
+            <p class="font-mono text-sm tracking-wider uppercase text-brand-violet font-semibold">Olá, meu nome é</p>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Pedro Henrique <br class="hidden sm:inline" />
+              <span class="bg-gradient-to-r from-brand-violet via-brand-cyanLight to-brand-cyan bg-clip-text text-transparent">Lima Leal</span>
+            </h1>
+            <p class="text-xl sm:text-2xl font-semibold text-slate-300 pt-1">
+              Engenheiro de Software & Desenvolvedor Full Stack
+            </p>
+          </div>
+
+          <!-- Description -->
+          <p class="text-base sm:text-lg text-brand-slateText leading-relaxed max-w-2xl">
+            Graduando em <strong class="text-white font-medium">Engenharia de Software</strong> pela <span class="text-brand-cyanLight">Jala University</span>, com formação técnica em Informática pelo <strong class="text-white font-medium">IFRO</strong> e proficiência em <strong class="text-white font-medium">Inglês B2</strong>. Atualmente na <strong class="text-white font-medium">Tratormag</strong>, liderando o desenvolvimento de sistemas corporativos, portais de alto tráfego, automações inteligentes e APIs escaláveis.
+          </p>
+
+          <!-- Badges Grid -->
+          <div class="flex flex-wrap gap-3 pt-2">
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 text-xs font-mono text-slate-300">
+              <i data-lucide="rocket" class="w-4 h-4 text-brand-cyan"></i>
+              <span>6+ Aplicações em Produção</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 text-xs font-mono text-slate-300">
+              <i data-lucide="award" class="w-4 h-4 text-brand-violet"></i>
+              <span>Inglês B2 Certificado</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 text-xs font-mono text-slate-300">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+              <span>Ariquemes - RO / Remoto</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#projetos" class="flex items-center gap-2 px-6 py-3.5 rounded-lg bg-brand-violet hover:bg-brand-violetGlow text-white font-semibold text-sm transition-all shadow-glow-violet hover:scale-[1.02] active:scale-[0.98]">
+              <span>Ver 6 Projetos no Ar</span>
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+            <a href="https://github.com/pedrohll4" target="_blank" rel="noopener noreferrer" 
+               class="flex items-center gap-2 px-5 py-3.5 rounded-lg bg-white/5 hover:bg-white/10 text-white font-mono text-sm border border-white/10 hover:border-brand-cyan/40 transition-all">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>GitHub (pedrohll4)</span>
+            </a>
+            <a href="https://wa.me/5569992102965" target="_blank" rel="noopener noreferrer" 
+               class="flex items-center gap-2 px-5 py-3.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-medium text-sm border border-emerald-500/30 transition-all">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: High-Impact Portrait + Terminal Stack -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <!-- Portrait Card -->
+          <div class="glass-panel rounded-2xl overflow-hidden p-2.5 shadow-portrait-glow border border-white/15 relative group">
+            
+            <!-- Top Subtle Corner Highlights -->
+            <div class="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-brand-cyan z-20"></div>
+            <div class="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-brand-violet z-20"></div>
+            
+            <div class="relative rounded-xl overflow-hidden aspect-[4/3] sm:aspect-[16/11]">
+              <img src="./pedro.png" 
+                   alt="Pedro Henrique Lima Leal - Software Engineer" 
+                   class="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.05] group-hover:scale-[1.02] transition-transform duration-500">
+              
+              <!-- Gradient Overlay at Bottom -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a0e18] via-transparent to-transparent opacity-90"></div>
+
+              <!-- Floating Tag Bottom -->
+              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono">
+                <div class="flex items-center gap-2 bg-[#0b0f19]/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-white">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="font-semibold text-xs">Pedro Henrique</span>
+                </div>
+                <div class="bg-brand-violet/20 backdrop-blur-md px-3 py-1.5 rounded-lg border border-brand-violet/30 text-brand-cyanLight font-semibold text-[11px]">
+                  &lt;Full Stack & Systems /&gt;
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal Window -->
+          <div class="glass-panel rounded-xl overflow-hidden shadow-xl border border-white/10">
+            
+            <!-- Terminal Title Bar -->
+            <div class="bg-[#141a29]/90 px-4 py-2.5 border-b border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+              </div>
+              <div class="font-mono text-[11px] text-brand-slateMuted flex items-center gap-1.5">
+                <i data-lucide="terminal" class="w-3 h-3 text-brand-cyan"></i>
+                <span>pedro@archlinux:~/stack</span>
+                <span class="text-brand-violet font-semibold">zsh</span>
+              </div>
+              <div class="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live
+              </div>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="p-4 font-mono text-xs leading-relaxed space-y-2 bg-[#0a0e18]/85 term-scroll overflow-y-auto max-h-[220px]">
+              <div class="flex items-center gap-2 text-slate-400 text-[11px]">
+                <span class="text-brand-cyan font-bold">&gt;</span>
+                <span class="text-white font-semibold">fastfetch --profile developer</span>
+              </div>
+
+              <div class="space-y-1 pl-3 border-l-2 border-brand-violet/40 text-[11px] text-slate-300">
+                <div class="flex justify-between py-0.5">
+                  <span class="text-brand-slateMuted">Specialization:</span>
+                  <span class="text-brand-cyan font-semibold">Full Stack & Systems</span>
+                </div>
+                <div class="flex justify-between py-0.5">
+                  <span class="text-brand-slateMuted">Active Role:</span>
+                  <span class="text-brand-cyanLight font-medium">Tratormag (Dev, APIs & Infra)</span>
+                </div>
+                <div class="flex justify-between py-0.5">
+                  <span class="text-brand-slateMuted">Primary Stack:</span>
+                  <span class="text-brand-violetGlow">React, Python, JS/TS, REST</span>
+                </div>
+                <div class="flex justify-between py-0.5">
+                  <span class="text-brand-slateMuted">Deployment:</span>
+                  <span class="text-emerald-400">tratormag.com.br + 5 Live Sites</span>
+                </div>
+              </div>
+
+              <div class="pt-1 flex items-center gap-2 text-brand-slateMuted text-[11px]">
+                <span class="text-brand-violet">&gt;</span>
+                <span class="text-emerald-400">uptime --status: Ready for new high-impact software missions.</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIVE PROJECTS IN PRODUCTION -->
+    <section id="projetos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono text-brand-cyan uppercase tracking-wider mb-2">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Portfólio em Produção</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Projetos Reais em Produção
+          </h2>
+          <p class="text-brand-slateText mt-2 text-sm sm:text-base max-w-xl">
+            Sistemas, portais corporativos e aplicações web criados do zero, com clientes reais, performance otimizada e hospedagem ativa (6 portais no ar).
+          </p>
+        </div>
+        
+        <div class="flex items-center gap-2 text-xs font-mono text-brand-slateMuted bg-white/5 px-3 py-1.5 rounded-lg border border-white/10 self-start md:self-auto">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>6/6 Ambientes Online</span>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Project 1: Tratormag (PREMIER FEATURED PROJECT) -->
+        <div class="glass-card rounded-xl p-6 flex flex-col justify-between group border-brand-cyan/30 hover:border-brand-cyan relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-28 h-28 bg-brand-cyan/10 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30 font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+                Portal Corporativo | Gestão Ativa
+              </span>
+              <i data-lucide="tractor" class="w-5 h-5 text-brand-cyan group-hover:scale-110 transition-transform"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-brand-cyanLight transition-colors flex items-center gap-2">
+              <span>Tratormag</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Destaque</span>
+            </h3>
+            
+            <p class="text-sm text-brand-slateText mt-2.5 leading-relaxed">
+              Portal corporativo e catálogo comercial oficial que desenvolvi e gerencio/mantenho ativamente até hoje. Apresentação completa de maquinários pesados, catálogo de peças agrícolas/industriais, serviços técnicos e canal direto de atendimento.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">Next.js / Web</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Gestão Contínua</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">APIs & Catálogo</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">SEO Otimizado</span>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
+            <a href="https://tratormag.com.br/" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyanLight hover:text-white transition-colors">
+              <span>Acessar Site Oficial</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-brand-slateMuted truncate max-w-[140px]">
+              tratormag.com.br
+            </span>
+          </div>
+        </div>
+
+        <!-- Project 2: Hora do Rush Notícias -->
+        <div class="glass-card rounded-xl p-6 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-rose-500/10 text-rose-300 border border-rose-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                Portal de Notícias | Produção
+              </span>
+              <i data-lucide="newspaper" class="w-5 h-5 text-brand-slateMuted group-hover:text-rose-400 transition-colors"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-brand-cyanLight transition-colors">
+              Hora do Rush Notícias
+            </h3>
+            
+            <p class="text-sm text-brand-slateText mt-2.5 leading-relaxed">
+              Portal de notícias regional dinâmico com feed de reportagens em tempo real, alta velocidade de carregamento, SEO avançado para ranqueamento e layout editorial responsivo.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Next.js / React</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Tailwind CSS</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">REST API</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">SEO Avançado</span>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
+            <a href="https://horadorushnoticias.com.br/" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyanLight hover:text-white transition-colors">
+              <span>Acessar Site</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-brand-slateMuted truncate max-w-[140px]">
+              horadorushnoticias.com.br
+            </span>
+          </div>
+        </div>
+
+        <!-- Project 3: Yuri Almeida Imóveis -->
+        <div class="glass-card rounded-xl p-6 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                Real Estate | Web App
+              </span>
+              <i data-lucide="home" class="w-5 h-5 text-brand-slateMuted group-hover:text-blue-400 transition-colors"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-brand-cyanLight transition-colors">
+              Yuri Almeida Imóveis
+            </h3>
+            
+            <p class="text-sm text-brand-slateText mt-2.5 leading-relaxed">
+              Plataforma imobiliária completa com catálogo interativo de casas, apartamentos e terrenos, filtros avançados de busca, integração para captação de leads e visualização moderna.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">React</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Node.js</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Bancos de Dados</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-brand-violet/10 text-brand-violetGlow border border-brand-violet/30">Busca Avançada</span>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
+            <a href="https://www.yurialmeidaimoveis.com.br/" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyanLight hover:text-white transition-colors">
+              <span>Acessar Site</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-brand-slateMuted truncate max-w-[140px]">
+              yurialmeidaimoveis.com.br
+            </span>
+          </div>
+        </div>
+
+        <!-- Project 4: Las Chicas Fitness -->
+        <div class="glass-card rounded-xl p-6 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-pink-500/10 text-pink-300 border border-pink-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>
+                E-Commerce | Vercel
+              </span>
+              <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-slateMuted group-hover:text-pink-400 transition-colors"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-brand-cyanLight transition-colors">
+              Las Chicas Fitness
+            </h3>
+            
+            <p class="text-sm text-brand-slateText mt-2.5 leading-relaxed">
+              Catálogo virtual moderno e e-commerce de moda fitness feminina. Interface pensada na conversão de vendas, vitrine responsiva e catálogo dinâmico de produtos com fotos em alta definição.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">E-Commerce</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">React / Web</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">UI/UX Moderno</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">Vercel Deploy</span>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
+            <a href="https://las-chicas-fitness.vercel.app/" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyanLight hover:text-white transition-colors">
+              <span>Acessar Site</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-brand-slateMuted truncate max-w-[140px]">
+              las-chicas-fitness.vercel.app
+            </span>
+          </div>
+        </div>
+
+        <!-- Project 5: El Shadday Ariquemes -->
+        <div class="glass-card rounded-xl p-6 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                Institucional | Vercel
+              </span>
+              <i data-lucide="users" class="w-5 h-5 text-brand-slateMuted group-hover:text-brand-cyan transition-colors"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-brand-cyanLight transition-colors">
+              El Shadday Ariquemes
+            </h3>
+            
+            <p class="text-sm text-brand-slateText mt-2.5 leading-relaxed">
+              Portal institucional e comunitário com agenda dinâmica de eventos, galeria multimídia, horários de encontros e canais de comunicação com engajamento focado em mobile.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Web Portal</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Agenda Dinâmica</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Mobile First</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">Comunitário</span>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
+            <a href="https://elshaddayariquemes.vercel.app/" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyanLight hover:text-white transition-colors">
+              <span>Acessar Site</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-brand-slateMuted truncate max-w-[140px]">
+              elshaddayariquemes.vercel.app
+            </span>
+          </div>
+        </div>
+
+        <!-- Project 6: Araujo Instrutor Autônomo -->
+        <div class="glass-card rounded-xl p-6 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                Landing Page | Conversão
+              </span>
+              <i data-lucide="car" class="w-5 h-5 text-brand-slateMuted group-hover:text-amber-400 transition-colors"></i>
+            </div>
+            
+            <h3 class="text-xl font-bold text-white group-hover:text-brand-cyanLight transition-colors">
+              Araujo Instrutor Autônomo
+            </h3>
+            
+            <p class="text-sm text-brand-slateText mt-2.5 leading-relaxed">
+              Landing page de alta conversão para instrutor de trânsito credenciado, destacando pacotes de aulas, depoimentos de aprovação e agendamento instantâneo via WhatsApp.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">Landing Page</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">WhatsApp API</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">UI Alta Conversão</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-brand-violet/10 text-brand-violetGlow border border-brand-violet/30">Otimizado</span>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
+            <a href="https://araujo-instrutor-autonomo.vercel.app/" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyanLight hover:text-white transition-colors">
+              <span>Acessar Site</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-[11px] font-mono text-brand-slateMuted truncate max-w-[140px]">
+              araujo-instrutor...vercel.app
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- EXPERIENCE & TIMELINE -->
+    <section id="experiencia" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono text-brand-violet uppercase tracking-wider mb-2">
+            <i data-lucide="git-branch" class="w-4 h-4"></i>
+            <span>Carreira e Formação</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Trajetória & Experiência Profissional
+          </h2>
+          <p class="text-brand-slateText mt-2 text-sm sm:text-base max-w-xl">
+            Evolução contínua entre vivência prática corporativa, desenvolvimento de sistemas e sólidas bases acadêmicas em engenharia de software.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="relative border-l border-white/10 ml-4 md:ml-8 space-y-12">
+
+        <!-- Timeline Item 1: Tratormag -->
+        <div class="relative pl-8 md:pl-10 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#0b0f19] border-2 border-brand-cyan group-hover:scale-125 group-hover:border-brand-cyanLight transition-all shadow-glow-cyan"></span>
+          
+          <div class="glass-card rounded-xl p-6 md:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <span class="text-xs font-mono text-brand-cyan uppercase tracking-wider font-semibold">Experiência Atual</span>
+                <h3 class="text-xl md:text-2xl font-bold text-white mt-1">Tratormag</h3>
+                <p class="text-sm font-semibold text-brand-slateText">Desenvolvimento de Sistemas, Portais Web & Infraestrutura de TI</p>
+              </div>
+              <div class="flex items-center gap-2 self-start sm:self-auto">
+                <a href="https://tratormag.com.br" target="_blank" class="px-2.5 py-1 rounded-full text-xs font-mono bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30 hover:bg-brand-cyan/25 transition-colors flex items-center gap-1">
+                  <span>tratormag.com.br</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                  Atuação Ativa
+                </span>
+              </div>
+            </div>
+
+            <p class="text-sm md:text-base text-slate-300 leading-relaxed mb-4">
+              Atuação integral em tecnologia da informação e desenvolvimento de software na empresa, responsável pela criação e gerenciamento ativo do portal corporativo oficial e dos sistemas operacionais:
+            </p>
+
+            <ul class="space-y-2 text-sm text-brand-slateText mb-5">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5"></i>
+                <span><strong class="text-white">Criação e Gestão Contínua do Site Oficial (tratormag.com.br):</strong> Desenvolvimento, manutenção contínua, otimização de SEO, catálogo digital e canais de conversão comercial.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5"></i>
+                <span><strong class="text-white">APIs e Automações:</strong> Criação de APIs RESTful, integrações entre sistemas e fluxos automatizados para elevar a produtividade das operações internas.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5"></i>
+                <span><strong class="text-white">Bancos de Dados & Git:</strong> Modelagem relacional, queries otimizadas, persistência de dados e controle rigoroso de versões de código com Git.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5"></i>
+                <span><strong class="text-white">Infraestrutura Corporativa:</strong> Suporte avançado aos usuários, computadores, configuração de roteamento/redes e diagnóstico proativo de TI.</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">tratormag.com.br</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">APIs REST</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">Automações</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-300 border border-white/10">Bancos de Dados</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-300 border border-white/10">Git & Deploy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2: Dabliu Marketing -->
+        <div class="relative pl-8 md:pl-10 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#0b0f19] border-2 border-brand-violet group-hover:scale-125 group-hover:border-brand-violetGlow transition-all"></span>
+          
+          <div class="glass-card rounded-xl p-6 md:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <span class="text-xs font-mono text-brand-violet uppercase tracking-wider font-semibold">Experiência Profissional</span>
+                <h3 class="text-xl md:text-2xl font-bold text-white mt-1">Dabliu Marketing</h3>
+                <p class="text-sm font-semibold text-brand-slateText">VideoMaker & Manutenção de Equipamentos de TI</p>
+              </div>
+              <span class="self-start sm:self-auto px-3 py-1 rounded-full text-xs font-mono bg-white/5 text-slate-400 border border-white/10">
+                Experiência Concluída
+              </span>
+            </div>
+
+            <p class="text-sm md:text-base text-slate-300 leading-relaxed mb-4">
+              Produção audiovisual dinâmica, edição avançada de conteúdos de mídia e prestação de suporte especializado a equipamentos de informática e infraestrutura de hardware.
+            </p>
+
+            <ul class="space-y-2 text-sm text-brand-slateText mb-5">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-violet shrink-0 mt-0.5"></i>
+                <span>Gravação e edição de vídeos e imagens institucionais com ferramentas Adobe (Premiere, Photoshop, After Effects).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-violet shrink-0 mt-0.5"></i>
+                <span>Manutenção preventiva e corretiva de computadores, impressoras, câmeras e periféricos, mantendo alto índice de disponibilidade.</span>
+              </li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-violet/10 text-brand-violetGlow border border-brand-violet/20">Adobe Premiere</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-violet/10 text-brand-violetGlow border border-brand-violet/20">Photoshop</span>
+              <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-300 border border-white/10">Hardware & TI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3: Jala University -->
+        <div class="relative pl-8 md:pl-10 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#0b0f19] border-2 border-brand-cyan group-hover:scale-125 transition-all"></span>
+          
+          <div class="glass-card rounded-xl p-6 md:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <span class="text-xs font-mono text-brand-cyan uppercase tracking-wider font-semibold">Ensino Superior</span>
+                <h3 class="text-xl md:text-2xl font-bold text-white mt-1">Jala University</h3>
+                <p class="text-sm font-semibold text-brand-slateText">Bacharelado em Engenharia de Software</p>
+              </div>
+              <span class="self-start sm:self-auto px-3 py-1 rounded-full text-xs font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">
+                2024 – Em Andamento
+              </span>
+            </div>
+
+            <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+              Formação internacional de alto rigor acadêmico com foco em excelência técnica, arquitetura de sistemas, estruturas de dados avançadas, padrões de projeto e resolução colaborativa de problemas complexos de software em padrão global.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 4: IFRO -->
+        <div class="relative pl-8 md:pl-10 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#0b0f19] border-2 border-slate-500 group-hover:scale-125 transition-all"></span>
+          
+          <div class="glass-card rounded-xl p-6 md:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <span class="text-xs font-mono text-brand-slateMuted uppercase tracking-wider font-semibold">Formação Técnica</span>
+                <h3 class="text-xl md:text-2xl font-bold text-white mt-1">IFRO (Instituto Federal de Rondônia)</h3>
+                <p class="text-sm font-semibold text-brand-slateText">Técnico em Manutenção e Suporte em Informática</p>
+              </div>
+              <span class="self-start sm:self-auto px-3 py-1 rounded-full text-xs font-mono bg-white/5 text-slate-300 border border-white/10">
+                2021 – 2023 (Formado)
+              </span>
+            </div>
+
+            <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+              Fundamentos sólidos e práticos de computação: arquitetura de hardware, infraestrutura de redes locais e roteamento, sistemas operacionais (Linux/Windows) e manutenção de ambientes tecnológicos corporativos.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TECHNICAL SKILLS MATRIX -->
+    <section id="habilidades" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono text-brand-cyan uppercase tracking-wider mb-2">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+            <span>Competências Técnicas</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Habilidades & Tecnologias
+          </h2>
+          <p class="text-brand-slateText mt-2 text-sm sm:text-base max-w-xl">
+            Stack moderna voltada para escalabilidade, manutenibilidade e entrega contínua em ambientes produtivos.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Category 1: Frontend -->
+        <div class="glass-card rounded-xl p-6 space-y-4">
+          <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+            <i data-lucide="layout" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Frontend</h3>
+            <p class="text-xs text-brand-slateText mt-1">Interfaces fluidas, ágeis e acessíveis.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">JavaScript (ES6+)</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">React</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">HTML5</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">CSS3</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">Tailwind CSS</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Responsive UI</span>
+          </div>
+          <div class="pt-2 text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Foco em Web Vitals
+          </div>
+        </div>
+
+        <!-- Category 2: Backend & Código -->
+        <div class="glass-card rounded-xl p-6 space-y-4">
+          <div class="w-12 h-12 rounded-lg bg-brand-violet/15 border border-brand-violet/30 flex items-center justify-center text-brand-violetGlow">
+            <i data-lucide="server" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Backend & Código</h3>
+            <p class="text-xs text-brand-slateText mt-1">Lógica robusta, escalabilidade e APIs.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-violet/10 text-brand-violetGlow border border-brand-violet/30">Python</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Java</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">C</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">REST APIs</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Automações</span>
+          </div>
+          <div class="pt-2 text-[11px] font-mono text-brand-cyan flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></span> Arquitetura Modular
+          </div>
+        </div>
+
+        <!-- Category 3: Infra & Dados -->
+        <div class="glass-card rounded-xl p-6 space-y-4">
+          <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <i data-lucide="database" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Infra & Dados</h3>
+            <p class="text-xs text-brand-slateText mt-1">Controle, persistência e sistemas.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Git</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">GitHub</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">Bancos de Dados</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Linux</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Redes & Hardware</span>
+          </div>
+          <div class="pt-2 text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Fundamentos Sólidos
+          </div>
+        </div>
+
+        <!-- Category 4: Idiomas & Comunicação -->
+        <div class="glass-card rounded-xl p-6 space-y-4">
+          <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-300">
+            <i data-lucide="globe" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Idiomas</h3>
+            <p class="text-xs text-brand-slateText mt-1">Comunicação fluida para times globais.</p>
+          </div>
+          <div class="space-y-3 pt-2">
+            <div class="p-2.5 rounded-lg bg-white/5 border border-white/10">
+              <div class="flex justify-between text-xs font-mono mb-1">
+                <span class="text-white font-medium">Português</span>
+                <span class="text-emerald-400">Nativo</span>
+              </div>
+              <div class="w-full bg-white/10 rounded-full h-1.5">
+                <div class="bg-emerald-400 h-1.5 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-white/5 border border-white/10">
+              <div class="flex justify-between text-xs font-mono mb-1">
+                <span class="text-white font-medium">Inglês</span>
+                <span class="text-brand-cyan">B2 Intermediário</span>
+              </div>
+              <div class="w-full bg-white/10 rounded-full h-1.5">
+                <div class="bg-brand-cyan h-1.5 rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-2 text-[11px] font-mono text-brand-cyan flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></span> Apto para times remotos
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CALL TO ACTION & CONTACT -->
+    <section id="contato" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+      <div class="glass-panel rounded-2xl p-8 sm:p-14 text-center relative overflow-hidden border border-brand-violet/30 shadow-2xl">
+        
+        <!-- Accent Glow -->
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-violet/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+          
+          <!-- Mini Avatar in Contact -->
+          <div class="flex justify-center mb-2">
+            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-brand-cyan p-1 bg-[#0b0f19] shadow-portrait-glow">
+              <img src="./pedro.png" alt="Pedro Henrique" class="w-full h-full object-cover rounded-full">
+            </div>
+          </div>
+
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">
+            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+            Inicie um Contato Direto
+          </span>
+
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Vamos construir algo incrível juntos?
+          </h2>
+
+          <p class="text-brand-slateText text-base sm:text-lg">
+            Disponível para oportunidades como desenvolvedor júnior/pleno, projetos freelance e consultorias técnicas. Resposta rápida garantida.
+          </p>
+
+          <!-- Direct Channels Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-8 text-left">
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/5569992102965" target="_blank" rel="noopener noreferrer" 
+               class="p-4 rounded-xl bg-white/[0.03] hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/30 transition-all group block">
+              <div class="flex items-center gap-2 text-emerald-400 text-xs font-mono font-semibold mb-1">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>WhatsApp</span>
+              </div>
+              <p class="text-sm font-bold text-white group-hover:text-emerald-300">(69) 99210-2965</p>
+              <span class="text-[11px] text-brand-slateMuted mt-1 inline-block">Conversar agora →</span>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:phlimaleal2019@gmail.com" 
+               class="p-4 rounded-xl bg-white/[0.03] hover:bg-brand-violet/10 border border-white/10 hover:border-brand-violet/30 transition-all group block">
+              <div class="flex items-center gap-2 text-brand-violetGlow text-xs font-mono font-semibold mb-1">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <span>E-mail</span>
+              </div>
+              <p class="text-xs sm:text-sm font-bold text-white group-hover:text-brand-violetGlow truncate" title="phlimaleal2019@gmail.com">
+                phlimaleal2019@gmail.com
+              </p>
+              <span class="text-[11px] text-brand-slateMuted mt-1 inline-block">Enviar mensagem →</span>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/pedrohll4" target="_blank" rel="noopener noreferrer" 
+               class="p-4 rounded-xl bg-white/[0.03] hover:bg-brand-cyan/10 border border-white/10 hover:border-brand-cyan/30 transition-all group block">
+              <div class="flex items-center gap-2 text-brand-cyan text-xs font-mono font-semibold mb-1">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                <span>GitHub</span>
+              </div>
+              <p class="text-sm font-bold text-white group-hover:text-brand-cyanLight">github.com/pedrohll4</p>
+              <span class="text-[11px] text-brand-slateMuted mt-1 inline-block">Explorar repositórios →</span>
+            </a>
+
+            <!-- Location -->
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10">
+              <div class="flex items-center gap-2 text-slate-300 text-xs font-mono font-semibold mb-1">
+                <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+                <span>Localização</span>
+              </div>
+              <p class="text-sm font-bold text-white">Ariquemes, RO</p>
+              <span class="text-[11px] text-brand-cyan mt-1 inline-block">Remoto ou Relocação</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-10 bg-[#090d16] relative z-10 text-xs font-mono text-brand-slateMuted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-full overflow-hidden border border-brand-violet/40">
+          <img src="./pedro.png" alt="Pedro Henrique" class="w-full h-full object-cover">
+        </div>
+        <span class="text-brand-violet font-bold">&lt;PH /&gt;</span>
+        <span class="text-white font-medium">Pedro Henrique Lima Leal</span>
+        <span class="hidden sm:inline">• Software Engineer</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/pedrohll4" target="_blank" class="hover:text-brand-cyanLight transition-colors">GitHub</a>
+        <a href="https://wa.me/5569992102965" target="_blank" class="hover:text-brand-cyanLight transition-colors">WhatsApp</a>
+        <a href="mailto:phlimaleal2019@gmail.com" class="hover:text-brand-cyanLight transition-colors">E-mail</a>
+        <a href="#inicio" class="hover:text-brand-cyanLight transition-colors flex items-center gap-1">
+          <span>Topo</span>
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <div class="text-center md:text-right text-[11px] text-slate-500">
+        © 2026 Pedro Henrique Lima Leal. Desenvolvido com foco em alta performance e código limpo.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // Dynamic Navbar Glass Blur on Scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('bg-[#0b0f19]/80', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+      } else {
+        navbar.classList.remove('bg-[#0b0f19]/80', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+      }
+    });
+  </script>
+</body>
+</html>
