@@ -245,7 +245,7 @@
 
           <!-- Description -->
           <p class="text-base sm:text-lg text-brand-slateText leading-relaxed max-w-2xl">
-            Graduando em <strong class="text-white font-medium">Engenharia de Software</strong> pela <span class="text-brand-cyanLight">Jala University</span>, com formação técnica em Informática pelo <strong class="text-white font-medium">IFRO</strong> e proficiência em <strong class="text-white font-medium">Inglês B2</strong>. Atualmente na <strong class="text-white font-medium">Tratormag</strong>, liderando o desenvolvimento de sistemas corporativos, portais de alto tráfego, automações inteligentes e APIs escaláveis.
+            Graduando em <strong class="text-white font-medium">Engenharia de Software</strong> pela <span class="text-brand-cyanLight">Jala University</span>, com formação técnica em Informática pelo <strong class="text-white font-medium">IFRO</strong> e proficiência em <strong class="text-white font-medium">Inglês B2</strong>. Atualmente na <strong class="text-white font-medium">Tratormag</strong>, com forte domínio no uso de <strong class="text-white font-medium">Inteligência Artificial</strong> para desenvolvimento ágil de sites, web apps de alta performance, automações e APIs escaláveis.
           </p>
 
           <!-- Badges Grid -->
@@ -354,6 +354,10 @@
                 <div class="flex justify-between py-0.5">
                   <span class="text-brand-slateMuted">Primary Stack:</span>
                   <span class="text-brand-violetGlow">React, Python, JS/TS, REST</span>
+                </div>
+                <div class="flex justify-between py-0.5">
+                  <span class="text-brand-slateMuted">AI Development:</span>
+                  <span class="text-brand-cyanLight font-medium">Criação de Sites/Apps com IA & Agentes</span>
                 </div>
                 <div class="flex justify-between py-0.5">
                   <span class="text-brand-slateMuted">Deployment:</span>
@@ -825,31 +829,33 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <!-- Category 1: Frontend -->
-        <div class="glass-card rounded-xl p-6 space-y-4">
-          <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
-            <i data-lucide="layout" class="w-6 h-6"></i>
+        <!-- Category 1: Frontend & Criação com IA -->
+        <div class="glass-card rounded-xl p-6 space-y-4 border-brand-violet/25 hover:border-brand-violet/50 relative overflow-hidden">
+          <div class="absolute -right-4 -top-4 w-16 h-16 bg-brand-violet/15 rounded-full blur-xl pointer-events-none"></div>
+          <div class="w-12 h-12 rounded-lg bg-brand-violet/15 border border-brand-violet/30 flex items-center justify-center text-brand-violetGlow">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
           </div>
           <div>
-            <h3 class="text-lg font-bold text-white">Frontend</h3>
-            <p class="text-xs text-brand-slateText mt-1">Interfaces fluidas, ágeis e acessíveis.</p>
+            <h3 class="text-lg font-bold text-white">Frontend & Criação com IA</h3>
+            <p class="text-xs text-brand-slateText mt-1">Desenvolvimento ágil de sites, landing pages e apps inteligentes com IA.</p>
           </div>
           <div class="flex flex-wrap gap-2 pt-2">
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">JavaScript (ES6+)</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-violet/20 text-brand-violetGlow border border-brand-violet/40 font-semibold">Criação de Sites com IA</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/40 font-semibold">Apps & Prototipagem com IA</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">React</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">HTML5</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">CSS3</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Next.js</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">JavaScript (ES6+)</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">Tailwind CSS</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Responsive UI</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Engenharia de Prompts</span>
           </div>
-          <div class="pt-2 text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Foco em Web Vitals
+          <div class="pt-2 text-[11px] font-mono text-brand-cyanLight flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span> Construção Acelerada de Sites & Apps com IA
           </div>
         </div>
 
         <!-- Category 2: Backend & Código -->
         <div class="glass-card rounded-xl p-6 space-y-4">
-          <div class="w-12 h-12 rounded-lg bg-brand-violet/15 border border-brand-violet/30 flex items-center justify-center text-brand-violetGlow">
+          <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
             <i data-lucide="server" class="w-6 h-6"></i>
           </div>
           <div>
@@ -861,10 +867,11 @@
             <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Java</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">C</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">REST APIs</span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-brand-cyan/15 text-brand-cyan border border-brand-cyan/30 font-medium">Integrações & LLMs</span>
             <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-200 border border-white/10">Automações</span>
           </div>
           <div class="pt-2 text-[11px] font-mono text-brand-cyan flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></span> Arquitetura Modular
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></span> Automações & Agentes Inteligentes
           </div>
         </div>
 

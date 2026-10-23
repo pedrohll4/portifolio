@@ -25,8 +25,8 @@
 
 ## 🛠️ Tecnologias & Stack
 
-- **Frontend:** JavaScript (ES6+), React, Next.js, Tailwind CSS, HTML5, CSS3, Lucide Icons, Glassmorphism UI
-- **Backend & Código:** Python, Java, C, REST APIs, Automações
+- **Frontend & Criação com IA:** Criação acelerada de sites e apps com IA Generativa, React, Next.js, JavaScript (ES6+), Tailwind CSS, UI/UX moderno e responsivo
+- **Backend & Código:** Python, Java, C, REST APIs, Automações e Integrações com LLMs
 - **Infraestrutura & Bancos:** Git, GitHub, Bancos de Dados, Linux VPS, Redes & Hardware
 - **Design no Stitch:** Projeto Stitch MCP com tema dark cyberpunk moderno (`#0b0f19`, neon violet `#8b5cf6` e hyper cyan `#06b6d4`).
 

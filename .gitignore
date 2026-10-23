@@ -5,3 +5,6 @@
 # Editor
 .vscode/
 .idea/
+
+# Preview mockups & Stitch design exports
+stitch_preview*.png
