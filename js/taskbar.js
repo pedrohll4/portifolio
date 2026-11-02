@@ -414,6 +414,7 @@ const PedroOSTaskbar = (function() {
     if (!screen) return;
 
     screen.classList.remove('hidden');
+    screen.style.display = 'flex';
     PedroOSAudio.playCloseWindow();
 
     const restartBtn = screen.querySelector('#btn-power-on');
@@ -421,6 +422,7 @@ const PedroOSTaskbar = (function() {
       restartBtn.addEventListener('click', () => {
         PedroOSAudio.playBootChime();
         screen.classList.add('hidden');
+        screen.style.display = 'none';
       }, { once: true });
     }
   }

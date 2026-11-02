@@ -16,6 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (bootScreen) {
     let progress = 0;
+    let bootFinished = false;
+
+    function finishBoot() {
+      if (bootFinished) return;
+      bootFinished = true;
+      if (interval) clearInterval(interval);
+      bootScreen.classList.add('is-fade-out');
+      PedroOSAudio.playBootChime();
+
+      setTimeout(() => {
+        if (bootScreen.parentNode) {
+          bootScreen.remove();
+        }
+        showWelcomeExperience();
+      }, 350);
+    }
+
+    // Allow user to click to skip boot instantly
+    bootScreen.addEventListener('click', finishBoot);
+
     const interval = setInterval(() => {
       progress += Math.floor(Math.random() * 25) + 15;
       if (progress > 100) progress = 100;
@@ -29,18 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (progress >= 100) {
-        clearInterval(interval);
-        setTimeout(() => {
-          bootScreen.classList.add('is-fade-out');
-          PedroOSAudio.playBootChime();
-
-          setTimeout(() => {
-            bootScreen.remove();
-            showWelcomeExperience();
-          }, 450);
-        }, 200);
+        finishBoot();
       }
     }, 70);
+
+    // Failsafe timeout: never stay stuck longer than 1.8 seconds
+    setTimeout(finishBoot, 1800);
   } else {
     showWelcomeExperience();
   }

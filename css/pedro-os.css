@@ -402,7 +402,7 @@ html.light .custom-scrollbar::-webkit-scrollbar-thumb {
 }
 
 /* Boot Screen & Shutdown Screen */
-#boot-screen, #shutdown-screen {
+#boot-screen {
   position: fixed;
   inset: 0;
   background: #060910;
@@ -416,6 +416,29 @@ html.light .custom-scrollbar::-webkit-scrollbar-thumb {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
+}
+
+#shutdown-screen {
+  position: fixed;
+  inset: 0;
+  background: #060910;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Visibility Rules - High Specificity overrides */
+.hidden,
+#shutdown-screen.hidden,
+#quick-search-modal.hidden,
+#taskbar-calendar-popup.hidden,
+#start-menu.hidden,
+#welcome-modal.hidden,
+#desktop-context-menu.hidden,
+#selection-marquee.hidden {
+  display: none !important;
 }
 
 /* Print Styles for Curriculum */
