@@ -33,16 +33,16 @@ const PedroOSDesktop = (function() {
     if (!container) return;
 
     container.innerHTML = desktopIcons.map(item => `
-      <div class="desktop-icon-item select-none flex flex-col items-center justify-start p-2 rounded-xl cursor-pointer group transition-all text-center relative" id="${item.id}" tabindex="0">
-        <div class="icon-wrapper w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-200 group-hover:scale-105 group-hover:shadow-lg relative">
-          <i data-lucide="${item.icon}" class="w-7 h-7 sm:w-8 sm:h-8 ${item.color} group-hover:brightness-125 transition-all"></i>
+      <div class="desktop-icon-item" id="${item.id}" tabindex="0" title="${item.name}">
+        <div class="icon-wrapper relative">
+          <i data-lucide="${item.icon}" class="w-6 h-6 sm:w-7 sm:h-7 ${item.color}"></i>
           ${item.badge ? `
-            <span class="absolute -top-1 -right-1 px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-brand-cyan text-[#0b0f19] shadow">
+            <span class="absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full text-[9px] font-mono font-bold bg-brand-cyan text-[#0b0f19] shadow">
               ${item.badge}
             </span>
           ` : ''}
         </div>
-        <span class="icon-label text-[11px] sm:text-xs text-white/90 font-medium tracking-tight mt-1.5 px-2 py-0.5 rounded-md leading-tight group-hover:text-white transition-colors break-words max-w-[80px] sm:max-w-[90px]">
+        <span class="icon-label">
           ${item.name}
         </span>
       </div>

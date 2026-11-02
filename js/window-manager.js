@@ -67,21 +67,22 @@ const PedroOSWindowManager = (function() {
     PedroOSAudio.playOpenWindow();
 
     const desktopEl = document.getElementById('desktop-area');
-    const desktopRect = desktopEl ? desktopEl.getBoundingClientRect() : { width: window.innerWidth, height: window.innerHeight - 56 };
+    const deskW = desktopEl ? desktopEl.clientWidth : window.innerWidth;
+    const deskH = desktopEl ? desktopEl.clientHeight : window.innerHeight - 54;
 
     // Calculate dimensions
     const mobileMode = isMobile();
-    const finalWidth = mobileMode ? desktopRect.width : Math.min(width, desktopRect.width - 40);
-    const finalHeight = mobileMode ? desktopRect.height : Math.min(height, desktopRect.height - 40);
+    const finalWidth = mobileMode ? deskW : Math.min(width, Math.max(340, deskW - 32));
+    const finalHeight = mobileMode ? deskH : Math.min(height, Math.max(260, deskH - 24));
 
-    // Calculate position
-    let posX = 40 + cascadeOffset;
-    let posY = 30 + cascadeOffset;
+    // Calculate position: CENTERED on the workspace with intelligent cascade offset
+    let posX = mobileMode ? 0 : Math.max(16, Math.floor((deskW - finalWidth) / 2) + cascadeOffset);
+    let posY = mobileMode ? 0 : Math.max(12, Math.floor((deskH - finalHeight) / 2) + cascadeOffset);
 
-    if (posX + finalWidth > desktopRect.width || posY + finalHeight > desktopRect.height) {
+    if (!mobileMode && (posX + finalWidth > deskW || posY + finalHeight > deskH)) {
       cascadeOffset = 0;
-      posX = 40;
-      posY = 30;
+      posX = Math.max(16, Math.floor((deskW - finalWidth) / 2));
+      posY = Math.max(12, Math.floor((deskH - finalHeight) / 2));
     }
     cascadeOffset = (cascadeOffset + CASCADE_STEP) % MAX_CASCADE;
 

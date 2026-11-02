@@ -672,7 +672,7 @@ const PedroOSApps = (function() {
 
         <!-- Projects Grid Container -->
         <div class="flex-1 p-5 overflow-y-auto custom-scrollbar">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="projects-grid">
             ${filtered.map(proj => `
               <div class="glass-card rounded-xl p-5 flex flex-col justify-between group border border-white/10 hover:border-brand-cyan/50 relative overflow-hidden transition-all duration-300" data-project-card="${proj.id}">
                 ${proj.isFeatured ? `
@@ -1183,7 +1183,7 @@ const PedroOSApps = (function() {
           <p class="text-xs text-brand-slateText mt-1">Organizadas por domínio de aplicação (sem porcentagens artificiais).</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="skills-grid">
           
           <!-- Frontend & IA -->
           <div class="glass-card rounded-xl p-5 border border-brand-violet/30 space-y-3">
