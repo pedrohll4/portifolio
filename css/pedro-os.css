@@ -1,0 +1,443 @@
+/* ============================================================
+   PedroOS - Core Stylesheet & Window Management Aesthetics
+   Glassmorphism, animations, responsive layout, dark/light themes
+   ============================================================ */
+
+:root {
+  --os-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --os-font-mono: 'JetBrains Mono', monospace;
+
+  /* Dark Theme Variables (Default) */
+  --os-bg: #090d16;
+  --os-text: #e2e8f0;
+  --os-text-muted: #94a3b8;
+  --os-window-bg: rgba(13, 18, 30, 0.78);
+  --os-window-header-bg: rgba(18, 24, 38, 0.85);
+  --os-window-border: rgba(255, 255, 255, 0.1);
+  --os-window-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+  --os-window-focus-border: rgba(6, 182, 212, 0.4);
+  --os-taskbar-bg: rgba(11, 15, 25, 0.82);
+  --os-taskbar-border: rgba(255, 255, 255, 0.08);
+  --os-card-bg: rgba(255, 255, 255, 0.03);
+  --os-card-border: rgba(255, 255, 255, 0.08);
+  --os-primary-violet: #8b5cf6;
+  --os-primary-cyan: #06b6d4;
+}
+
+/* Light Theme Variables */
+html.light {
+  --os-bg: #eef2f6;
+  --os-text: #1e293b;
+  --os-text-muted: #64748b;
+  --os-window-bg: rgba(255, 255, 255, 0.88);
+  --os-window-header-bg: rgba(241, 245, 249, 0.95);
+  --os-window-border: rgba(0, 0, 0, 0.12);
+  --os-window-shadow: 0 20px 45px rgba(0, 0, 0, 0.14), 0 0 1px 1px rgba(0, 0, 0, 0.05);
+  --os-window-focus-border: rgba(139, 92, 246, 0.6);
+  --os-taskbar-bg: rgba(255, 255, 255, 0.86);
+  --os-taskbar-border: rgba(0, 0, 0, 0.08);
+  --os-card-bg: rgba(255, 255, 255, 0.6);
+  --os-card-border: rgba(0, 0, 0, 0.08);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--os-font);
+  background-color: var(--os-bg);
+  color: var(--os-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+html.light .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Desktop Canvas & Wallpaper */
+#desktop-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 56px; /* Taskbar height */
+  overflow: hidden;
+}
+
+#desktop-wallpaper {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: background 0.5s ease;
+  z-index: 0;
+}
+
+/* Cyber Grid Pattern Overlay */
+.desktop-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* Desktop Icons Container */
+#desktop-icons-container {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 12px 16px;
+  max-height: calc(100% - 32px);
+  z-index: 10;
+}
+
+@media (max-width: 767px) {
+  #desktop-icons-container {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    width: calc(100% - 32px);
+    gap: 16px 8px;
+    top: 20px;
+    left: 16px;
+  }
+}
+
+/* Desktop Icon Item */
+.desktop-icon-item {
+  width: 88px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+.desktop-icon-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.desktop-icon-item.is-selected {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+}
+.desktop-icon-item .icon-wrapper {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+.desktop-icon-item:hover .icon-wrapper {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Selection Marquee */
+#selection-marquee {
+  position: absolute;
+  border: 1px solid rgba(6, 182, 212, 0.7);
+  background: rgba(6, 182, 212, 0.15);
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* ============================================================
+   WINDOW MANAGEMENT STYLES
+   ============================================================ */
+.pedro-window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--os-window-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--os-window-border);
+  border-radius: 14px;
+  box-shadow: var(--os-window-shadow);
+  overflow: hidden;
+  will-change: transform, width, height;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, opacity 0.18s ease;
+}
+
+.pedro-window.is-focused {
+  border-color: var(--os-window-focus-border);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px var(--os-window-focus-border);
+}
+
+.pedro-window.is-dragging {
+  cursor: grabbing !important;
+  user-select: none;
+  opacity: 0.95;
+}
+.pedro-window.is-dragging .window-content-wrapper {
+  pointer-events: none;
+}
+
+.pedro-window.is-resizing {
+  user-select: none;
+}
+.pedro-window.is-resizing .window-content-wrapper {
+  pointer-events: none;
+}
+
+.pedro-window.is-minimized {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8) translateY(120px) !important;
+}
+
+.pedro-window.is-maximized {
+  top: 0 !important;
+  left: 0 !important;
+  border-radius: 0 !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+.pedro-window.is-closing {
+  opacity: 0;
+  transform: scale(0.92) !important;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* Mobile full-screen sheets */
+.pedro-window.is-mobile-window {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/* Window Titlebar */
+.window-titlebar {
+  height: 38px;
+  padding: 0 14px;
+  background: var(--os-window-header-bg);
+  border-bottom: 1px solid var(--os-window-border);
+  cursor: grab;
+  flex-shrink: 0;
+}
+.pedro-window.is-maximized .window-titlebar,
+.pedro-window.is-mobile-window .window-titlebar {
+  cursor: default;
+}
+
+/* Window Control Buttons */
+.win-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--os-text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.win-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+.win-btn-close:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+/* Window Content Wrapper */
+.window-content-wrapper {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+/* Resize Handle */
+.window-resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  z-index: 50;
+}
+.window-resize-handle::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================================
+   TASKBAR & SYSTEM TRAY STYLES
+   ============================================================ */
+#taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  background: var(--os-taskbar-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--os-taskbar-border);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+#start-button {
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+#start-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.taskbar-pinned-app {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+.taskbar-pinned-app:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Start Menu */
+#start-menu {
+  position: absolute;
+  bottom: 64px;
+  left: 12px;
+  width: min(540px, calc(100vw - 24px));
+  max-height: calc(100vh - 80px);
+  background: var(--os-window-bg);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--os-window-border);
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+  z-index: 1005;
+  animation: startMenuIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes startMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Quick Search Modal (Spotlight) */
+#quick-search-modal {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1050;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 12vh;
+}
+
+/* Calendar Popup */
+#taskbar-calendar-popup {
+  position: absolute;
+  bottom: 64px;
+  right: 12px;
+  width: 320px;
+  background: var(--os-window-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--os-window-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  z-index: 1005;
+}
+
+/* Boot Screen & Shutdown Screen */
+#boot-screen, #shutdown-screen {
+  position: fixed;
+  inset: 0;
+  background: #060910;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#boot-screen.is-fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Print Styles for Curriculum */
+@media print {
+  #desktop-area,
+  #taskbar,
+  #start-menu,
+  #desktop-context-menu,
+  #quick-search-modal,
+  .pdf-toolbar,
+  .window-titlebar,
+  .window-resize-handle {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .printable-resume {
+    box-shadow: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
